@@ -1,6 +1,7 @@
 <template>
     <div class="nav">
         <div v-for="(l,i) in data" :key="i">
+          <p><i class="icon iconfont icon-daohangshouye"></i></p>
           <P>{{l.name}}</P>
         </div>
         <!-- <div>
