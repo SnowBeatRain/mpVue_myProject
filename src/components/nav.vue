@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <div v-for="(l,i) in data" :key="i">
-      <a  class="nav_list" :class=" {active:l.active}" :href="l.path">
+      <a  class="nav_list" :class=" {active:l.active}" @click='clickTo(l.path)'>
           <p>
             <i class="icon iconfont icon-daohangshouye"></i>
           </p>
@@ -29,6 +29,12 @@ export default {
   },
   mounted () {
     console.log(this.data)
+  },
+  methods: {
+    clickTo (e) {
+      console.log(e)
+      wx.navigateTo({ url: e })
+    }
   }
 }
 </script>
