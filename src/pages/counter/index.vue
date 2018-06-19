@@ -6,19 +6,48 @@
       <button @click="decrement">-</button>
     </p>
 
-    <a href="/pages/index/main" class="home">去往首页</a>
+    <Nav-tab :data='navData'></Nav-tab>
   </div>
 </template>
 
 <script>
 // Use Vuex
 import store from './store'
-
+import NavTab from '@/components/nav'
 export default {
+  data () {
+    return {
+      navData: [
+        {
+          name: '首页',
+          path: '/pages/index/main',
+          active: false
+        },
+        {
+          name: '购物车',
+          path: '/pages/shop/main',
+          active: false
+        },
+        {
+          name: '发布',
+          path: '/pages/counter/main',
+          active: true
+        },
+        {
+          name: '我的',
+          path: '/pages/mine/main',
+          active: false
+        }
+      ]
+    }
+  },
   computed: {
     count () {
       return store.state.count
     }
+  },
+  components: {
+    NavTab
   },
   methods: {
     increment () {

@@ -16,7 +16,6 @@ export default {
   data () {
     return {
       motto: 'Hello World',
-      userInfo: {},
       navData: []
     }
   },
@@ -37,16 +36,24 @@ export default {
     // 调用应用实例的方法获取全局数据
     this.navData = [
       {
-        name: '首页'
+        name: '首页',
+        path: '/pages/index/main',
+        active: true
       },
       {
-        name: '购物车'
+        name: '购物车',
+        path: '/pages/shop/main',
+        active: false
       },
       {
-        name: '发布'
+        name: '发布',
+        path: '/pages/counter/main',
+        active: false
       },
       {
-        name: '我的'
+        name: '我的',
+        path: '/pages/mine/main',
+        active: false
       }
     ]
     this.$http
@@ -65,24 +72,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-$base_color: red;
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
+$base_color: #1989df;
 .usermotto {
   margin-top: 150px;
 }
