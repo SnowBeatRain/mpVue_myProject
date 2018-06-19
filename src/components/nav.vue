@@ -1,18 +1,18 @@
 <template>
   <div class="nav">
     <div v-for="(l,i) in data" :key="i">
-      <a  class="nav_list active" :href="l.path" v-if="l.active">
+      <a  class="nav_list" :class=" {active:l.active}" :href="l.path">
           <p>
             <i class="icon iconfont icon-daohangshouye"></i>
           </p>
           <P>{{l.name}}</P>
       </a>
-      <a  class="nav_list" :href="l.path" v-else>
+      <!-- <a  class="nav_list" :href="l.path" v-else>
           <p>
             <i class="icon iconfont icon-daohangshouye"></i>
           </p>
           <P>{{l.name}}</P>
-      </a>
+      </a> -->
     </div>
   </div>
 </template>
@@ -43,8 +43,8 @@ $font_color: #fff;
   height: 50px;
   background-color: $background_color;
   text-align: center;
-  .active{
-    color: red!important;
+  .active {
+    color: red !important;
   }
   .nav_list {
     color: $font_color;
