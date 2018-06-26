@@ -25,15 +25,36 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      // 是否是当前页  如果是那么点击tabbar不跳转
+      isNowPath: false
+    }
   },
   mounted () {
-    console.log(this.data)
+    // console.log(this.data)
   },
   methods: {
     clickTo (e) {
+      console.log(this.$root.$mp)
+      var pages = getCurrentPages()
+      var currentPage = pages[pages.length - 1]
+      var urlP = currentPage.route
+      console.log(urlP)
+      // var nowUrl = this.$root.$mp.appOptions.path
       console.log(e)
-      wx.navigateTo({ url: e })
+      if (this.comparePath(urlP, e)) {
+      } else {
+        wx.navigateTo({ url: e })
+      }
+    },
+    // 比较当前页和点击跳转的页面是否为同一个
+    comparePath (old, n) {
+      // n.substr(1) 截取掉n的第一位/ 用于判断old路径
+      if (old === n.substr(1)) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
